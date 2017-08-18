@@ -69,11 +69,10 @@ class Board():
         Returns:
             tuple/False: 変換に成功した場合はその位置のタプル，失敗した場合はFalse
         """
-        if len(pos_name) != 2:
-            False
         column_names = ['A','B','C','D','E','F','G','H']
-        if pos_name[0].upper() in column_names and int(pos_name[1]) in range(1,9):
-            return  int(pos_name[1])-1, column_names.index(pos_name[0].upper())
+        if len(pos_name) != 2:
+            if pos_name[0].upper() in column_names and pos_name[1].isdigit() and int(pos_name[1]) in range(1,9):
+                return  int(pos_name[1])-1, column_names.index(pos_name[0].upper())
         return False
 
     def isPuttable(self, position):
