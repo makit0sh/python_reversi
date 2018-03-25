@@ -6,10 +6,13 @@ from tqdm import tqdm, trange
 import reversi
 import ai_random
 import ai_static_weighting
-import ai_static_weighting_rev
 import ai_minimax
+import ai_dqn
 
-ai_player_type_list = [ai_static_weighting, ai_static_weighting_rev]
+ai_player_type_list = [ai_dqn]
+
+def load_model(filename):
+    ai_dqn.load_model_param(filename)
 
 def roundRobin(n):
     """AI同士の総当たり戦を実施する。返り値なし。
@@ -46,6 +49,8 @@ def roundRobin(n):
     print(black_result)
     print('white')
     print(white_result)
+
+    return black_result, white_result
 
 
 def main():

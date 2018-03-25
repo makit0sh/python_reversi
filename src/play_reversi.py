@@ -6,13 +6,14 @@ import human_interface
 import ai_random
 import ai_static_weighting
 import ai_minimax
+import ai_dqn
 
-player_type_list = [human_interface, ai_random, ai_static_weighting, ai_minimax]
+player_type_list = [human_interface, ai_random, ai_static_weighting, ai_minimax, ai_dqn]
 
 def main():
     """main関数。プレーヤータイプを選択し，ゲームを実行する"""
     print("available player types:")
-    print("0: human, 1: AI level0 (random), 2: AI level1 (static weighting), 3: AI level2 (minimax)")
+    print("0: human, 1: AI level0 (random), 2: AI level1 (static weighting), 3: AI level2 (minimax) 4: AI level3 (DQN)")
     print("select black player type in number")
     black_type_number = input("> ")
     black_player_type = player_type_list[int(black_type_number)]
